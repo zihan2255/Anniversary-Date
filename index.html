@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>For Ainy ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #090909;
+    --dark: #11100f;
+    --gold: #d6b46a;
+    --gold-light: #f2d99a;
+    --pink: #e9a9bd;
+    --pink-light: #f6d6e0;
+    --white: #fff8f1;
+    --muted: #b7aaa0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 35%, #30251d 0%, #15110f 42%, #090909 78%);
+}
+
+#hero::before,
+#hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(214,180,106,.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#hero::before {
+    top: -150px;
+    left: -130px;
+}
+
+#hero::after {
+    bottom: -170px;
+    right: -130px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.3s ease;
+}
+
+.eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+
+.hero-heart {
+    color: var(--pink);
+    font-size: 42px;
+    margin-bottom: 22px;
+    animation: heartbeat 2s infinite;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+.hero-title {
+    font-size: clamp(42px, 9vw, 72px);
+    line-height: 1.15;
+    color: var(--white);
+}
+
+.hero-title em {
+    color: var(--pink);
+    font-weight: 400;
+}
+
+.hero-subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 22px;
+}
+
+.button-area {
+    position: relative;
+    width: min(100%, 380px);
+    height: 90px;
+    margin: 30px auto 0;
+}
+
+.primary-btn,
+.secondary-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 31px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    transition: .3s ease;
+}
+
+.primary-btn {
+    color: #17110a;
+    background: linear-gradient(135deg, #f2d99a, #c39a4e);
+    box-shadow: 0 5px 25px rgba(214,180,106,.18);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(214,180,106,.3);
+}
+
+.secondary-btn {
+    color: var(--pink-light);
+    background: #2b1d23;
+    border: 1px solid rgba(233,169,189,.5);
+    position: absolute;
+    left: 58%;
+    top: 10px;
+}
+
+#yesBtn {
+    position: absolute;
+    left: 13%;
+    top: 10px;
+}
+
+#noMessage {
+    color: var(--pink);
+    font-size: 11px;
+    letter-spacing: 1px;
+    min-height: 20px;
+    margin-top: 4px;
+}
+
+.signature {
+    color: #8d8178;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 32px;
+}
+
+#content {
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+.section {
+    padding: 85px 22px;
+    text-align: center;
+}
+
+.anniversary-section {
+    background:
+        radial-gradient(ellipse at top, #2a201a 0%, #100e0d 60%, #090909 100%);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gold-line {
+    width: 55px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px auto;
+}
+
+.small-label {
+    text-transform: uppercase;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.anniversary-title {
+    font-size: clamp(38px, 8vw, 65px);
+    line-height: 1.2;
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+.anniversary-title span {
+    color: var(--pink);
+    font-style: italic;
+}
+
+.anniversary-description {
+    color: var(--muted);
+    max-width: 430px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.date-display {
+    margin-top: 40px;
+    border-top: 1px solid rgba(214,180,106,.35);
+    border-bottom: 1px solid rgba(214,180,106,.35);
+    padding: 20px 35px;
+}
+
+.date-display strong {
+    display: block;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.date-display span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+.countdown-section {
+    padding: 45px 15px;
+    background: #0d0b0a;
+    text-align: center;
+    border-top: 1px solid rgba(214,180,106,.12);
+    border-bottom: 1px solid rgba(214,180,106,.12);
+}
+
+.countdown-title {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(12px, 5vw, 40px);
+}
+
+.time-box strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(27px, 6vw, 42px);
+    color: var(--pink-light);
+    font-weight: 400;
+}
+
+.time-box span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.plan-section {
+    background: #11100f;
+    padding-top: 85px;
+    padding-bottom: 90px;
+}
+
+.section-heading {
+    font-size: clamp(36px, 7vw, 50px);
+    margin: 15px 0;
+}
+
+.section-heading em {
+    color: var(--pink);
+}
+
+.section-intro {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 55px;
+}
+
+.timeline {
+    max-width: 530px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 15px;
+    bottom: 15px;
+    width: 1px;
+    background: linear-gradient(var(--gold), var(--pink), transparent);
+}
+
+.event {
+    position: relative;
+    padding: 0 0 45px 60px;
+}
+
+.event:last-child {
+    padding-bottom: 0;
+}
+
+.event-dot {
+    position: absolute;
+    left: 11px;
+    top: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 12px rgba(214,180,106,.3);
+}
+
+.event-time {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.event h3 {
+    color: var(--white);
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.event p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.event-icon {
+    color: var(--pink);
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.letter-section {
+    background:
+        radial-gradient(ellipse at center, #281d20 0%, #100d0d 70%);
+    padding: 90px 22px;
+}
+
+.letter-card {
+    max-width: 600px;
+    margin: 35px auto 0;
+    padding: 38px 30px;
+    border: 1px solid rgba(214,180,106,.35);
+    background: rgba(9,9,9,.5);
+    box-shadow: 0 15px 50px rgba(0,0,0,.2);
+}
+
+.letter-card h3 {
+    font-size: 30px;
+    color: var(--gold-light);
+    margin-bottom: 25px;
+}
+
+.letter-card p {
+    color: #d4c8c0;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 17px;
+}
+
+.letter-signature {
+    color: var(--pink) !important;
+    font-style: italic;
+    font-size: 21px !important;
+    margin-top: 25px;
+}
+
+.final-section {
+    padding: 90px 20px;
+    text-align: center;
+    background: #090909;
+}
+
+.final-section h2 {
+    font-size: clamp(38px, 8vw, 58px);
+    margin: 20px 0;
+}
+
+.final-section h2 em {
+    color: var(--pink);
+}
+
+.final-section p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.final-heart {
+    color: var(--pink);
+    font-size: 35px;
+    margin: 25px 0;
+}
+
+footer {
+    background: #070707;
+    color: #75685e;
+    text-align: center;
+    padding: 25px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(214,180,106,.12);
+}
+
+.petals {
+    position: fixed;
+    top: -20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(650deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .letter-card {
+        padding: 30px 22px;
+    }
+
+    .button-area {
+        width: 330px;
+        max-width: 100%;
+    }
+
+    #yesBtn {
+        left: 7%;
+    }
+
+    .secondary-btn {
+        left: 58%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING QUESTION -->
+<section id="hero">
+    <div class="hero-content">
+        <div class="eyebrow">A little question, for someone special</div>
+        <div class="hero-heart">♡</div>
+
+        <h1 class="hero-title">
+            Ainy,<br>
+            <em>will you be my date?</em>
+        </h1>
+
+        <p class="hero-subtitle">
+            I've planned something special<br>
+            for our anniversary.
+        </p>
+
+        <div class="button-area" id="buttonArea">
+            <button class="primary-btn" id="yesBtn" onclick="openInvitation()">
+                YES! ♡
+            </button>
+
+            <button class="secondary-btn" id="noBtn"
+                onpointerenter="moveNoButton()"
+                onclick="handleNoClick()">
+                NO
+            </button>
+        </div>
+
+        <p id="noMessage">Choose wisely, pretty girl ♡</p>
+
+        <div class="signature">MADE WITH LOVE, BY ZIHAN</div>
+    </div>
+</section>
+
+<!-- MAIN INVITATION -->
+<main id="content">
+
+    <section class="section anniversary-section">
+        <div class="small-label">25 February 2025 · Forever since</div>
+        <div class="gold-line"></div>
+
+        <h2 class="anniversary-title">
+            Another 25th,<br>
+            <span>another chapter of us.</span>
+        </h2>
+
+        <p class="anniversary-description">
+            Another month of choosing each other, making memories,
+            and finding new reasons to love what we have.
+            This one's for us, Ainy.
+        </p>
+
+        <div class="date-display">
+            <strong>25 November 2026</strong>
+            <span>OUR ANNIVERSARY DATE</span>
+        </div>
+    </section>
+
+    <section class="countdown-section">
+        <div class="countdown-title">Until our evening together</div>
+
+        <div class="countdown" id="countdown">
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE ITINERARY -->
+    <section class="section plan-section">
+        <div class="small-label">A night planned for us</div>
+        <div class="gold-line"></div>
+
+        <h2 class="section-heading">
+            Our little <em>plan.</em>
+        </h2>
+
+        <p class="section-intro">
+            Nothing complicated. Just you, me, and a night to remember.
+        </p>
+
+        <div class="timeline">
+
+            <div class="event">
+                <div class="event-dot"></div>
+                <div class="event-icon">♡</div>
+                <div class="event-time">5:30 PM</div>
+                <h3>I'll pick you up</h3>
+                <p>The evening begins. Get ready, pretty girl.</p>
+            </div>
+
+            <div class="event">
+                <div class="event-dot"></div>
+                <div class="event-icon">✧</div>
+                <div class="event-time">7:15 PM</div>
+                <h3>Dinner at High Tide</h3>
+                <p>Our reservation is booked. A lovely dinner and some time together.</p>
+            </div>
+
+            <div class="event">
+                <div class="event-dot"></div>
+                <div class="event-icon">♡</div>
+                <div class="event-time">After dinner</div>
+                <h3>Ice cream time</h3>
+                <p>Because dessert deserves its own moment.</p>
+            </div>
+
+            <div class="event">
+                <div class="event-dot"></div>
+                <div class="event-icon">☾</div>
+                <div class="event-time">To finish the night</div>
+                <h3>A walk by the beach</h3>
+                <p>Just us, the sea, and a little more time together.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="section letter-section">
+        <div class="small-label">A few words for you</div>
+        <div class="gold-line"></div>
+
+        <div class="letter-card">
+            <h3>Dear Ainy,</h3>
+
+            <p>
+                Every 25th reminds me of how lucky I am to have you
+                in my life. Somehow, another month passes, and I still
+                find new reasons to be grateful that it's you.
+            </p>
+
+            <p>
+                I don't need every moment to be perfect.
+                I just want the memories, the laughter, the little
+                conversations, and all the ordinary moments with you.
+            </p>
+
+            <p>
+                Thank you for being part of my life and for making
+                it a little more beautiful.
+            </p>
+
+            <p class="letter-signature">
+                With love, always,<br>
+                Zihan ♡
+            </p>
+        </div>
+    </section>
+
+    <!-- ENDING -->
+    <section class="final-section">
+        <div class="small-label">One last thing</div>
+
+        <h2>
+            Here's to us,<br>
+            <em>my favourite person.</em>
+        </h2>
+
+        <div class="final-heart">♡</div>
+
+        <p>
+            Happy anniversary, Ainy.<br>
+            I can't wait to spend this evening with you.
+        </p>
+
+        <div class="gold-line"></div>
+        <p>25.11.2026</p>
+    </section>
+
+    <footer>
+        MADE FOR AINY · WITH LOVE FROM ZIHAN ♡
+    </footer>
+
+</main>
+
+<script>
+let noAttempts = 0;
+let invitationOpened = false;
+
+const noMessages = [
+    "Nope! Try again, pretty girl ♡",
+    "That button really doesn't want to be clicked!",
+    "I think you know what the answer should be..."
+];
+
+function moveNoButton() {
+    if (invitationOpened) return;
+
+    const button = document.getElementById("noBtn");
+    const area = document.getElementById("buttonArea");
+    const message = document.getElementById("noMessage");
+
+    noAttempts++;
+
+    if (noAttempts >= 3) {
+        turnNoIntoYes();
+        return;
+    }
+
+    const maxX = Math.max(0, area.clientWidth - button.offsetWidth);
+    const maxY = Math.max(0, area.clientHeight - button.offsetHeight);
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    button.style.left = randomX + "px";
+    button.style.top = randomY + "px";
+
+    message.textContent = noMessages[noAttempts - 1];
+}
+
+function handleNoClick() {
+    if (invitationOpened) return;
+
+    if (noAttempts >= 2) {
+        turnNoIntoYes();
+    } else {
+        moveNoButton();
+    }
+}
+
+function turnNoIntoYes() {
+    const button = document.getElementById("noBtn");
+    const message = document.getElementById("noMessage");
+
+    button.textContent = "YES! ♡";
+    button.className = "primary-btn";
+    button.style.left = "58%";
+    button.style.top = "10px";
+    button.onpointerenter = null;
+    button.onclick = openInvitation;
+
+    message.textContent = "Knew you'd choose the right answer! ♡";
+}
+
+function openInvitation() {
+    if (invitationOpened) return;
+
+    invitationOpened = true;
+
+    document.getElementById("hero").style.display = "none";
+    document.getElementById("content").style.display = "block";
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+
+    createPetals();
+    updateCountdown();
+}
+
+function updateCountdown() {
+    // 5:30 PM Maldives time, November 25, 2026
+    const target = new Date("2026-11-25T17:30:00+05:00").getTime();
+    const now = Date.now();
+    const difference = target - now;
+
+    if (difference <= 0) {
+        document.getElementById("countdown").innerHTML =
+            '<div class="time-box"><strong>♡</strong><span>Our day is here</span></div>';
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+function createPetals() {
+    const symbols = ["♡", "✧", "♥", "✦"];
+
+    for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+            const petal = document.createElement("div");
+            petal.className = "petals";
+            petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+            petal.style.left = Math.random() * 100 + "vw";
+            petal.style.color = Math.random() > 0.5 ? "#e9a9bd" : "#d6b46a";
+            petal.style.fontSize = (12 + Math.random() * 15) + "px";
+            petal.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+            document.body.appendChild(petal);
+
+            setTimeout(() => petal.remove(), 9500);
+        }, i * 180);
+    }
+}
+</script>
+
+</body>
+</html>
